@@ -1,5 +1,20 @@
 <div>
   <h3>{{ playlist.name }}</h3>
+  <form name="songForm"  class="form-horizontal">
+    <legend>Add to Playlist</legend>
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <select class="form-control" ng-model="songOptions" name="title" ng-options="song as song.name for song in allSongs track by song.id" required></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+
+          <button type="submit" class="btn btn-success" ng-click="addASong(playlist.id, songOptions)" ng-disabled="songForm.title.$invalid">Add Song</button>
+        </div>
+      </div>
+    </form>
   <table class='table' ng-show="playlist.songs.length">
     <thead>
       <tr>

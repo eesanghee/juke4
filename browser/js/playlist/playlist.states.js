@@ -11,8 +11,15 @@ juke.config(function ($stateProvider) {
     templateUrl: '/js/playlist/templates/playlist.html',
     controller: 'PlaylistCtrl',
     resolve: {
-      thePlaylist: function(PlaylistFactory, $stateParams) {
-        return PlaylistFactory.getAPlaylist($stateParams.id);
+      thePlaylist: function(PlaylistFactory, $stateParams, $http) {
+        // if($stateParams.id === "") {
+        //   return PlaylistFactory.
+        // } else {
+          return PlaylistFactory.getAPlaylist($stateParams.id);
+        // }
+      },
+      myOptions: function(SongFactory, $http){
+        return SongFactory.getAllSongs();
       }
     }
   })
