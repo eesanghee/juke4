@@ -5,7 +5,6 @@
 juke.controller('ArtistsCtrl', function ($scope, allArtists) {
 
   $scope.artists = allArtists;
-
 });
 
 /* ARTIST (SINGULAR) CONTROLLER */
